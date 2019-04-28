@@ -1,0 +1,32 @@
+1. Insmod build directory not found
+
+	Cause :Linux headers are not installed
+	Solution : Check the kernel version using the command "uname –r"
+	Download the Respective Header file from this link : 
+	https://www.google.com/url?sa=t&source=web&rct=j&url=https://www.niksula.hut.fi/~mhiienka/Rpi/linux-headers-rpi/&ved=2ahUKEwjv-Jzj7uHhAhUHAXIKHbD9AfoQFjAAegQIBBAB&usg=AOvVaw05YvOvM7CrEdk4xJx0fB0t&cshid=1555873053756
+	Once headers are downloaded install it using command :
+	"sudo dpkg -i linux-headers-'Depending on ur version'armhf.deb"
+	"eg sudo dpkg -i linux-headers-4.1.19+_4.1.19+-2_armhf.deb"
+	you may have to check with the errors and possible solutions provided in terminal itself and run those
+	commands
+
+2. BC package not installed
+
+	Run the following commands:
+	"sudo apt-get update"
+	"Sudo apt-get install bc"
+
+3.  Insmod .ko file format not valid 
+
+	Cause : Kernel Version and Header version differ
+	Check Kernel Version using command "uname –r"
+	Check Header version using "dpkg -s linux-headers-$(uname -r)"
+	If not same you may have to download linux header compatible with kernel from this link :
+	https://www.niksula.hut.fi/~mhiienka/Rpi/linux-headers-rpi/
+
+	Then run the following command
+	"sudo dpkg -i linux-headers-'Depending on ur version'armhf.deb"
+	Alternatively change the Version of Linux kernel using :
+	https://tech.enekochan.com/en/2014/03/08/upgradedowngrade-to-a-specific-firmware-kernel-versionwith-rpi-update-in-raspbian/
+	An excellent Link for this Problem is :
+	https://raspberrypi.stackexchange.com/questions/39845/how-compile-a-loadable-kernel-modulewithout-recompiling-kernel
